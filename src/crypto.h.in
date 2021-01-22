@@ -1,3 +1,4 @@
+// Copyright (c) 2021 WAZN Project
 // Copyright (c) 2020, The Monero Project
 //
 // All rights reserved.
@@ -26,13 +27,13 @@
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef MONERO_CRYPTO_H
-#define MONERO_CRYPTO_H
+#ifndef WAZN_CRYPTO_H
+#define WAZN_CRYPTO_H
 
-#include "monero/crypto/@MONERO_CRYPTO_LIBRARY@.h"
+#include "wazn/crypto/@WAZN_CRYPTO_LIBRARY@.h"
 
-#define monero_crypto_ge25519_scalarmult monero_crypto_@MONERO_CRYPTO_NAMESPACE@_ge25519_scalarmult
-#define monero_crypto_generate_key_derivation monero_crypto_@MONERO_CRYPTO_NAMESPACE@_generate_key_derivation
-#define monero_crypto_generate_subaddress_public_key monero_crypto_@MONERO_CRYPTO_NAMESPACE@_generate_subaddress_public_key
+#define wazn_crypto_ge25519_scalarmult wazn_crypto_@WAZN_CRYPTO_NAMESPACE@_ge25519_scalarmult
+#define wazn_crypto_generate_key_derivation wazn_crypto_@WAZN_CRYPTO_NAMESPACE@_generate_key_derivation
+#define wazn_crypto_generate_subaddress_public_key wazn_crypto_@WAZN_CRYPTO_NAMESPACE@_generate_subaddress_public_key
 
-#endif // MONERO_CRYPTO_H
+#endif // WAZN_CRYPTO_H

@@ -1,3 +1,4 @@
+// Copyright (c) 2021 WAZN Project
 // Copyright (c) 2020, The Monero Project
 //
 // All rights reserved.
@@ -59,18 +60,17 @@ static void ge25519_p1p1_to_pniels(ge25519_pniels* out, ge25519_p1p1 const* in)
 #define choose_tp crypto_sign_ed25519_amd64_64_choose_tp
 #include "amd64.c.inc"
 
-int monero_crypto_amd64_64_24k_ge25519_scalarmult(char* out, char const* pub, char const* sec)
+int wazn_crypto_amd64_64_24k_ge25519_scalarmult(char* out, char const* pub, char const* sec)
 {
   return scalarmult(out, pub, sec);
 }
 
-int monero_crypto_amd64_64_24k_generate_key_derivation(char* out, char const* tx_pub, char const* view_sec)
+int wazn_crypto_amd64_64_24k_generate_key_derivation(char* out, char const* tx_pub, char const* view_sec)
 {
   return generate_key_derivation(out, tx_pub, view_sec);
 }
 
-int monero_crypto_amd64_64_24k_generate_subaddress_public_key(char* out, char const* output_pub, char const* special_sec)
+int wazn_crypto_amd64_64_24k_generate_subaddress_public_key(char* out, char const* output_pub, char const* special_sec)
 {
   return generate_subaddress_public_key(out, output_pub, special_sec);
 }
-

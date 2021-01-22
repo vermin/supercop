@@ -1,3 +1,4 @@
+// Copyright (c) 2021 WAZN Project
 // Copyright (c) 2020, The Monero Project
 //
 // All rights reserved.
@@ -46,7 +47,7 @@ static int unpack_vartime(ge25519_p3 *r, const unsigned char p[32])
   unsigned char par = p[31] >> 7;
 
   fe25519_setint(&r->z,1);
-  fe25519_unpack(&r->y, p); 
+  fe25519_unpack(&r->y, p);
   fe25519_square(&num, &r->y); /* x = y^2 */
   fe25519_mul(&den, &num, &ecd); /* den = dy^2 */
   fe25519_sub(&num, &num, &r->z); /* x = y^2-1 */
@@ -184,7 +185,7 @@ static int generate_key_derivation(char* out, char const* tx_pub, char const* vi
   base_precomp(base, &unpacked);
   scalarmult_p1p1(&tp1p1, base, view_sec);
 
-  // non-standard, monero specific - guarantees point is in ed25519 group
+  // non-standard, wazn specific - guarantees point is in ed25519 group
   ge25519_p1p1_to_p2((ge25519_p2*)&unpacked, &tp1p1);
   ge25519_dbl_p1p1(&tp1p1,(ge25519_p2 *)&unpacked);
   ge25519_p1p1_to_p2((ge25519_p2 *)&unpacked, &tp1p1);
@@ -218,4 +219,3 @@ static int generate_subaddress_public_key(char* out, char const* output_pub, cha
   generate_subaddress_public_key_base(out, &p, special_sec);
   return 0;
 }
-

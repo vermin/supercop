@@ -1,3 +1,4 @@
+# Copyright (c) 2021 WAZN Project
 # Copyright (c) 2020, The Monero Project
 #
 # All rights reserved.
@@ -30,7 +31,7 @@ function(add_amd64_library LIBNAME LIBFOLDER)
   set(MULTIVARS SOURCES)
   cmake_parse_arguments(AMD64_PERF "" "" "${MULTIVARS}" ${ARGN})
 
-  add_library("monero-crypto-${LIBNAME}" OBJECT
+  add_library("wazn-crypto-${LIBNAME}" OBJECT
     "${LIBNAME}.c" "${LIBNAME}-choose_tp.s"
     "${LIBFOLDER}/choose_t.s"
     "${LIBFOLDER}/consts.s"
@@ -60,7 +61,7 @@ function(add_amd64_library LIBNAME LIBFOLDER)
     "${LIBFOLDER}/sc25519_from32bytes.c"
     "${LIBFOLDER}/sc25519_window4.c"
     ${AMD64_PERF_SOURCES})
-  target_include_directories("monero-crypto-${LIBNAME}" PRIVATE ${LIBFOLDER})
+  target_include_directories("wazn-crypto-${LIBNAME}" PRIVATE ${LIBFOLDER})
   set_source_files_properties("${LIBFOLDER}/consts.s" PROPERTIES COMPILE_FLAGS "-x assembler-with-cpp" LANGUAGE "C")
 endfunction (add_amd64_library)
 

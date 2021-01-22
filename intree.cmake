@@ -1,3 +1,4 @@
+# Copyright (c) 2021 WAZN Project
 # Copyright (c) 2020, The Monero Project
 #
 # All rights reserved.
@@ -28,20 +29,19 @@
 
 include(functions.cmake)
 
-set(MONERO_CRYPTO_LIBRARY "auto" CACHE STRING "Select a crypto library backend")
+set(WAZN_CRYPTO_LIBRARY "auto" CACHE STRING "Select a crypto library backend")
 
-if (${MONERO_CRYPTO_LIBRARY} STREQUAL "auto")
-  monero_crypto_autodetect(AVAILABLE BEST)
+if (${WAZN_CRYPTO_LIBRARY} STREQUAL "auto")
+  wazn_crypto_autodetect(AVAILABLE BEST)
   if (NOT DEFINED BEST)
     message(FATAL_ERROR "No crypto library available for target platform")
   endif ()
   message("Using ${BEST} crypto backend")
-  set(MONERO_CRYPTO_LIBRARY ${BEST})
+  set(WAZN_CRYPTO_LIBRARY ${BEST})
 endif ()
 
 # next line fatal errors if invalid library selected
-monero_crypto_generate_header(${MONERO_CRYPTO_LIBRARY} "${CMAKE_BINARY_DIR}/include/monero/crypto.h")
+wazn_crypto_generate_header(${WAZN_CRYPTO_LIBRARY} "${CMAKE_BINARY_DIR}/include/wazn/crypto.h")
 
-monero_crypto_get_target(${MONERO_CRYPTO_LIBRARY} CRYPTO_TARGET)
-add_library(monero-crypto-intree ALIAS ${CRYPTO_TARGET})
-
+wazn_crypto_get_target(${WAZN_CRYPTO_LIBRARY} CRYPTO_TARGET)
+add_library(wazn-crypto-intree ALIAS ${CRYPTO_TARGET})

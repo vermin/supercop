@@ -1,3 +1,4 @@
+# Copyright (c) 2021 WAZN Project
 # Copyright (c) 2020, The Monero Project
 #
 # All rights reserved.
@@ -27,12 +28,12 @@
 # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 cmake_minimum_required(VERSION 2.8.7)
-project(monero-crypto)
+project(wazn-crypto)
 enable_language(ASM C)
 include(intree.cmake)
 
-add_library(monero-crypto $<TARGET_OBJECTS:monero-crypto-intree>)
+add_library(wazn-crypto $<TARGET_OBJECTS:wazn-crypto-intree>)
 
-INSTALL(FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/monero/crypto/${MONERO_CRYPTO_LIBRARY}.h" DESTINATION "include/monero/crypto")
-INSTALL(FILES "${CMAKE_BINARY_DIR}/include/monero/crypto.h" DESTINATION "include/monero")
-INSTALL(TARGETS monero-crypto LIBRARY)
+INSTALL(FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/wazn/crypto/${WAZN_CRYPTO_LIBRARY}.h" DESTINATION "include/wazn/crypto")
+INSTALL(FILES "${CMAKE_BINARY_DIR}/include/wazn/crypto.h" DESTINATION "include/wazn")
+INSTALL(TARGETS wazn-crypto LIBRARY)
